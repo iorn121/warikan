@@ -9,21 +9,36 @@ type User = {
   pay: number;
 };
 
-type Users = {
-  num: number;
-  users: User[];
-};
-
 export default function Home() {
-  const [numPeople, setNumPeople] = useState(0);
+  const [allUsers, setAllUsers] = useState<User[]>([]);
+  const [userName, setUserName] = useState("");
   return (
     <main className={styles.main}>
       <input
-        type="number"
-        value={numPeople}
-        onChange={(event) => setNumPeople(Number(event.target.value))}
+        type="string"
+        onChange={(event) => setUserName(event.target.value)}
       />
-      <div>{numPeople}</div>
+      <button
+        onClick={() =>
+          setAllUsers([
+            ...allUsers,
+            { id: allUsers.length, name: userName, buy: 0, pay: 0 },
+          ])
+        }
+      >
+        Add User
+      </button>
+      <table>
+        {allUsers.map((user) => {
+          return (
+            <tr className="styles.user">
+              <td>{user.name}</td>
+              <td>{String(user.pay)}</td>
+              <td>{String(user.buy)}</td>
+            </tr>
+          );
+        })}
+      </table>
     </main>
   );
 }
