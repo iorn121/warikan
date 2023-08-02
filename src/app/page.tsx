@@ -64,7 +64,7 @@ export default function Home() {
       <label>支払い対象</label>
       {allUsers.map((user, i) => {
         return (
-          <div>
+          <div key={i}>
             <p>{user.name}</p>
             <input
               type="checkbox"
@@ -93,7 +93,11 @@ export default function Home() {
       >
         <option />
         {allUsers.map((user, i) => {
-          return <option value={user.id}>{user.name}</option>;
+          return (
+            <option key={i} value={user.id}>
+              {user.name}
+            </option>
+          );
         })}
       </select>
       <label>金額</label>
@@ -136,7 +140,7 @@ export default function Home() {
         <tbody>
           {allUsers.map((user, i) => {
             return (
-              <tr className="styles.tr">
+              <tr key={i} className="styles.tr">
                 <td className="styles.td">{user.name}</td>
                 <td className="styles.td">{String(user.pay)}</td>
                 <td className="styles.td">{String(user.buy)}</td>
