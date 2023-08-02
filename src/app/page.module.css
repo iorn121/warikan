@@ -5,6 +5,27 @@
   padding: 6rem;
   min-height: 100vh;
 }
+.table {
+  border-spacing: 0;
+  width: 100%;
+  margin: 10px;
+}
+
+.tr {
+  border-bottom: solid 1px #000;
+}
+
+.td {
+  padding: 10px;
+  text-align: center;
+}
+
+.th {
+  padding: 10px;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+}
 
 .user {
   display: flex;
